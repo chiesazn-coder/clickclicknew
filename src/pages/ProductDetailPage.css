@@ -1,0 +1,202 @@
+.product-detail-page {
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    padding: 60px 40px;
+  }
+  
+  .product-detail-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+  
+  /* GALERI KIRI */
+  .product-detail-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-detail-main-image {
+    width: 100%;
+    max-width: 550px;
+    object-fit: contain;
+    background-color: #f9f9f9;
+  }
+  
+  .product-detail-thumbnails {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .thumbnail-button {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    opacity: 0.6;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .thumbnail-button.active {
+    opacity: 1;
+    outline: 2px solid #222;
+  }
+  
+  .thumbnail-image {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+  }
+  
+  /* PANEL KANAN */
+  .product-detail-info {
+    background-color: #ffffff;
+    padding: 32px 40px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.04);
+  }
+  
+  .breadcrumb {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 12px;
+  }
+  
+  .breadcrumb a {
+    color: #999;
+    text-decoration: none;
+  }
+  
+  .breadcrumb-current {
+    color: #555;
+  }
+  
+  .product-detail-title {
+    font-size: 28px;
+    letter-spacing: 0.12em;
+    margin: 4px 0 16px;
+  }
+  
+  .product-detail-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  
+  .product-detail-price {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .product-detail-original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  
+  .product-detail-short {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  
+  /* ACTIONS */
+  .product-detail-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 22px 0;
+  }
+  
+  .quantity-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .qty-btn {
+    border: none;
+    padding: 8px 14px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .qty-value {
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  
+  .add-to-bag-button {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: none;
+    background-color: #111;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .add-to-bag-button:hover {
+    opacity: 0.9;
+  }
+  
+  .product-detail-meta {
+    font-size: 11px;
+    color: #999;
+    margin-top: 8px;
+  }
+  
+  .product-detail-meta span {
+    color: #555;
+  }
+  
+  /* NOT FOUND */
+  .product-detail-not-found {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .back-button {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .product-detail-page {
+      padding: 32px 16px;
+    }
+  
+    .product-detail-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  
+    .product-detail-info {
+      padding: 24px 20px;
+    }
+  }
+  

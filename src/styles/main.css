@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+/* ============================
+   LOGO STYLE
+============================ */
+.logo-row {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .logo {
+    display: block;
+    text-align: center;
+  
+    font-family: ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, Helvetica, Arial;
+  
+    font-weight: 800;
+    letter-spacing: 3.5px;
+  
+    font-size: 32px;
+    padding: 20px 0;
+    color: #000;
+    text-decoration: none;
+  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* ============================
+     HERO STYLE (opsional)
+  ============================ */
+  .hero-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .hero-video,
+  .hero-image {
+    width: 100%;
+    height: calc(100vh - 140px);
+    object-fit: cover;
+    display: block;
+  }
+
+/* ============================
+   UTIL: sembunyikan scrollbar
+============================ */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+/* ============================
+   PRODUCTS (rapih & responsif)
+============================ */
+.products { background:#fff; padding:72px 0; }
+  
+.products-title{
+  text-align:center;
+  font-size:36px;
+  line-height:1.2;
+  margin:0 0 80px;
+  font-family:"Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  font-weight:400; color:#151515;
+}
+
+/* Track horizontal (flex + snap) */
+.track{
+  display:flex;
+  gap:32px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding:4px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width:none;
+}
+.track::-webkit-scrollbar { display:none; }
+
+/* 3 kartu terlihat di desktop */
+.product-card{
+  flex: 0 0 calc((100% - 3 * 32px) / 4);
+  scroll-snap-align:start;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  position:relative;
+  overflow:visible;
+}
+
+/* Meta */
+.product-card .meta {
+  text-align:center;
+  margin-top:8px;
+}
+.product-card .name {
+  font-family:"Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  font-size:14px; font-weight:400; margin-bottom:4px;
+}
+.product-card .price {
+  font-family:"Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  font-size:14px; color:#111;
+}
+
+/* harga lama dicoret, abu tipis */
+.product-card .price-original {
+  font-size: 13px;
+  font-weight: 400;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin-right: 8px;
+  display: inline-block;
+  line-height: 1.4;
+}
+
+/* harga diskon tebal, hitam */
+.product-card .price-discount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.4;
+}
+
+/* Badge -50% */
+.product-card .new-badge{
+  position:absolute; left:16px; top:16px;
+  background:#fff; border-radius:4px; padding:6px 10px;
+  font-size:12px; font-weight:700; color:#6b7280; letter-spacing:.06em;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+/* Gambar */
+.product-card .thumb{
+  aspect-ratio:4 / 3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  border-radius:12px;
+  overflow: visible; /* ✅ biar badge/overlay tidak kepotong */
+  position: relative;
+}
+
+.product-card .thumb-inner{
+  width: 100%;
+  height: 100%;
+  border-radius:12px;
+  overflow:hidden; /* ✅ tetap crop gambar rounded */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-card .new-badge{
+  z-index: 30;
+}
+
+
+.product-card img{
+  width:100%; height:100%; max-width:100%; max-height:100%;
+  object-fit:contain; object-position:center; display:block;
+}
+
+/* Warna opsional */
+.colors{ display:flex; justify-content:center; gap:10px; margin-top:10px; }
+.color-dot{
+  width:16px; height:16px; border-radius:999px; border:2px solid #fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,.12); display:inline-block;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width:780px){
+  .products{ padding:56px 0; }
+  .products-title{ font-size:28px; margin-bottom:24px; }
+
+  .track{
+    gap:20px;
+    padding:4px 8px 8px;
+    scroll-padding-left:8px;
+  }
+
+  .product-card{
+    flex:0 0 86vw;
+    max-width:520px;
+  }
+
+  .prod-nav{ display:none; }
+}
+
+@media (max-width:360px){
+  .product-card{ flex-basis:92vw; }
+}
+
+@media (min-width:781px){
+  .track{ gap:32px; padding:4px; }
+}
+
+/* ====== Panah indikator swipe ====== */
+.products-wrap { 
+  position:relative;
+}
+
+.swipe-hint {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  line-height:1;
+  color:rgba(0,0,0,0.4);
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+  border-radius:999px;
+
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+  user-select:none;
+  transition:opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+  z-index:10;
+}
+
+.swipe-hint--left { left:10px; }
+.swipe-hint--right { right:10px; }
+
+.swipe-hint:hover {
+  opacity:1;
+  transform:translateY(-50%) scale(1.07);
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+}

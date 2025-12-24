@@ -1,0 +1,15 @@
+/* Import Tailwind v4 */
+@import "tailwindcss";
+
+/* (opsional) kamu bisa tambah style global di bawah ini */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-gray-900;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
+}
