@@ -3,8 +3,8 @@ import React from 'react';
 // Data Ulasan Dummy
 const reviews = [
     { id: 1, user: "Kayla D.", rating: 5, status: "Verified Buyer", text: "Desain metalnya mewah, cahaya soft banget di muka. Cocok buat yang suka look minimalis.", product: "CLICKCLICK M4" },
-    { id: 2, user: "Olivia K.", rating: 5, status: "Verified Buyer", text: "Bentuknya simpel & magnetnya kuat. Praktis banget dibawa buat ngonten harian.", product: "CLICKCLICK T8D" },
-    { id: 3, user: "Justin M.", rating: 4, status: "Verified Buyer", text: "Baterainya juara! Layarnya gede, sangat membantu buat live durasi lama.", product: "CLICKCLICK T3B" },
+    { id: 2, user: "Maya K.", rating: 5, status: "Verified Buyer", text: "Bentuknya simpel & magnetnya kuat. Praktis banget dibawa buat ngonten harian.", product: "CLICKCLICK T8D" },
+    { id: 3, user: "Fikri M.", rating: 4, status: "Verified Buyer", text: "Baterainya juara! Layarnya gede, sangat membantu buat live durasi lama.", product: "CLICKCLICK T3B" },
     // Tambahkan ulasan keempat untuk memastikan tampilan 3 kolom (satu tersembunyi/di-scroll)
     { id: 4, user: "Sarah L.", rating: 5, status: "Verified Buyer", text: "Kacanya jernih parah. Detail wajah kelihatan tajam tapi tetep natural.", product: "CLICKCLCIK T1M" },
 ];
@@ -64,7 +64,7 @@ const CustomerReviewsSlider = () => {
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Community Speaks</h2>
                     <div className="flex items-center text-pink-500">
                         <StarRating count={5} /> 
-                        <span className="ml-2 text-gray-600 font-medium">11104 reviews</span>
+                        <span className="ml-2 text-gray-600 font-medium">200 reviews</span>
                     </div>
                 </div>
 
