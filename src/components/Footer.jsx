@@ -13,7 +13,7 @@ const Footer = () => {
                         <h3 className="text-xl font-bold mb-4">
                             Enjoy CLICKCLICK exclusive offers
                         </h3>
-                        <p className="text-sm text-gray-400 mb-4">
+                        <p className="text-sm text-black mb-4">
                             Stay up-to-date with our latest news, updates and promotions
                         </p>
                         <form className="flex space-x-2">
@@ -34,35 +34,35 @@ const Footer = () => {
                     {/* Kolom 2: Explore */}
                     <div>
                         <h4 className="font-semibold mb-4 text-sm">Explore</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
+                        <ul className="space-y-2 text-sm text-black">
                             <li>
-                                <a href="#all-products" className="hover:text-white transition">
+                                <a href="#all-products" className="hover:text-pink-500 transition">
                                     Discover
                                 </a>
                             </li>
                             <li>
-                                <Link to="/catalog" className="hover:text-white transition">
+                                <Link to="/catalog" className="hover:text-pink-500 transition">
                                     Catalog
                                 </Link>
                             </li>
-                            <li><a href="#" className="hover:text-white transition">New Arrivals</a></li>
-                            <li><a href="#" className="hover:text-white transition">Best Sellers</a></li>
+                            <li><a href="#" className="hover:text-pink-500 transition">New Arrivals</a></li>
+                            <li><a href="#" className="hover:text-pink-500 transition">Best Sellers</a></li>
                         </ul>
                     </div>
 
                     {/* Kolom 3: Marketplace/Company */}
                     <div>
                         <h4 className="font-semibold mb-4 text-sm">Company</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <Link to="/about" className="hover:text-white transition">About Us</Link>
+                        <ul className="space-y-2 text-sm text-black">
+                            <Link to="/about" className="hover:text-pink-500 transition">About Us</Link>
                             <li>
-                                <Link to="/contact" className="hover:text-white transition">
+                                <Link to="/contact" className="hover:text-pink-500 transition">
                                     Contact
                                 </Link>
                             </li>
-                            <Link to="/blog" className="hover:text-white transition">Blog</Link>
+                            <Link to="/blog" className="hover:text-pink-500 transition">Blog</Link>
                             <li>
-                                <Link to="/careers" className="hover:text-white transition">
+                                <Link to="/careers" className="hover:text-pink-500 transition">
                                     Careers
                                 </Link>
                             </li>
@@ -72,10 +72,10 @@ const Footer = () => {
                     {/* Kolom 4: Connect with us */}
                     <div>
                         <h4 className="font-semibold mb-4 text-sm">Connect with us</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li><a href="https://www.instagram.com/clickclickofficial.id/" className="hover:text-white transition">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@clickclickmall?_r=1&_t=ZS-92Txsmk9ROj" className="hover:text-white transition">Tiktok</a></li>
-                            <li><a href="https://shopee.co.id/shop/1556220986" className="hover:text-white transition">Shopee</a></li>
+                        <ul className="space-y-2 text-sm text-black">
+                            <li><a href="https://www.instagram.com/clickclickofficial.id/" className="hover:text-pink-500 transition">Instagram</a></li>
+                            <li><a href="https://www.tiktok.com/@clickclickmall?_r=1&_t=ZS-92Txsmk9ROj" className="hover:text-pink-500 transition">Tiktok</a></li>
+                            <li><a href="https://shopee.co.id/shop/1556220986" className="hover:text-pink-500 transition">Shopee</a></li>
                         </ul>
                     </div>
                 </div>
