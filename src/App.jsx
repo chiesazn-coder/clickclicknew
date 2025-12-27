@@ -16,6 +16,8 @@ import ContactPage from "./pages/ContactPage";
 import BlogComingSoon from "./pages/BlogComingSoon";
 import CareersPage from "./pages/CareersPage";
 import WishlistPage from "./pages/WishlistPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/blog" element={<BlogComingSoon />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
       </div>
 

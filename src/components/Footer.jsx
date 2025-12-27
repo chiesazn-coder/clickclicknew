@@ -91,8 +91,12 @@ const Footer = () => {
                         <p className="mb-2 md:mb-0">
                             Copyright © {new Date().getFullYear()}. CLICKCLICK All Rights Reserved.
                         </p>
-                        <a href="#" className="hover:text-white transition">Terms of Use</a>
-                        <a href="#" className="hover:text-white transition">Privacy Podicy</a>
+                        <Link to="/terms" className="hover:text-pink-500 transition">
+                            Terms of Use
+                        </Link>
+                        <Link to="/privacy-policy" className="hover:text-pink-500 transition">
+                            Privacy Policy
+                        </Link>
                     </div>
                 </div>
 
