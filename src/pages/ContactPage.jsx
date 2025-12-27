@@ -77,12 +77,12 @@ const ContactPage = () => {
                     WhatsApp
                   </p>
                   <a
-                    href="https://wa.me/6281234567890"
+                    href="https://wa.me/6281138000729"
                     target="_blank"
                     rel="noreferrer"
                     className="mt-2 block text-sm font-semibold text-gray-900 hover:underline"
                   >
-                    +62 812-3456-7890
+                    +62 811-3800-0729
                   </a>
                   <p className="mt-1 text-sm text-gray-600">
                     Quick questions and order support
