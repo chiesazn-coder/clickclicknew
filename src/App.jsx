@@ -15,6 +15,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import BlogComingSoon from "./pages/BlogComingSoon";
 import CareersPage from "./pages/CareersPage";
+import WishlistPage from "./pages/WishlistPage";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogComingSoon />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
         </Routes>
       </div>
 
