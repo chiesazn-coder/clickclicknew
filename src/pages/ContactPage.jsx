@@ -62,10 +62,10 @@ const ContactPage = () => {
                     Email
                   </p>
                   <a
-                    href="mailto:hello@clickclick.co"
+                    href="mailto:officialclickclick@gmail.com"
                     className="mt-2 block text-sm font-semibold text-gray-900 hover:underline"
                   >
-                    hello@clickclick.co
+                    officialclickclick@gmail.com
                   </a>
                   <p className="mt-1 text-sm text-gray-600">
                     Support and general questions
@@ -95,7 +95,7 @@ const ContactPage = () => {
                   </p>
                   <div className="mt-2 flex flex-wrap gap-3">
                     <a
-                      href="https://instagram.com/"
+                      href="https://www.instagram.com/clickclickofficial.id/"
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-semibold hover:border-black transition"
@@ -103,20 +103,12 @@ const ContactPage = () => {
                       Instagram
                     </a>
                     <a
-                      href="https://tiktok.com/"
+                      href="https://www.tiktok.com/@clickclickmall?_r=1&_t=ZS-92Txsmk9ROj"
                       target="_blank"
                       rel="noreferrer"
                       className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-semibold hover:border-black transition"
                     >
                       TikTok
-                    </a>
-                    <a
-                      href="https://youtube.com/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-4 py-2 rounded-lg border border-gray-200 text-sm font-semibold hover:border-black transition"
-                    >
-                      YouTube
                     </a>
                   </div>
                 </div>

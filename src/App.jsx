@@ -18,6 +18,7 @@ import CareersPage from "./pages/CareersPage";
 import WishlistPage from "./pages/WishlistPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import WellnessPage from "./pages/WellnessPage";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/wellness" element={<WellnessPage />} />
         </Routes>
       </div>
 

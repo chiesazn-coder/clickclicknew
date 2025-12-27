@@ -7,6 +7,7 @@ import BundleSection from "../components/BundleSection";
 import VideoShowcaseSection from "../components/VideoShowcaseSection";
 import TestimonialGrid from "../components/TestimonialGrid"; // Import komponen baru
 import CustomerReviewsSlider from "../components/CustomerReviewsSlider"; // Import komponen BARU
+import WellnessSection from "../components/WellnessSection";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
     <>
       <Hero />
       <ProductsSection /> 
+      <WellnessSection />
       <VideoShowcaseSection /> 
       <BundleSection />  
       <CustomerReviewsSlider />
