@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../context/WishlistContext";
+import { useCart } from "../context/CartContext"; 
 
 const formatRupiah = (number) => {
   const n = Number(number || 0);
@@ -13,13 +14,35 @@ const formatRupiah = (number) => {
 
 export default function WishlistPage() {
   const { items, removeItem, toggleItem, clear } = useWishlist();
+  const { addItem, openCart } = useCart(); // ✅ tambah
 
   // Support items = array OR object
   const wishlistItems = Array.isArray(items) ? items : Object.values(items || {});
 
   const handleRemove = (key) => {
     if (typeof removeItem === "function") return removeItem(key);
-    if (typeof toggleItem === "function") return toggleItem({ key }); // fallback kalau context cuma punya toggle
+    if (typeof toggleItem === "function") return toggleItem({ key });
+  };
+
+  const handleAddToCart = (item) => {
+    // Samakan mapping field dari wishlist item → cart item
+    const key = item.key ?? item.id ?? item.slug;
+
+    addItem({
+      key,
+      id: item.id ?? null,
+      slug: item.slug ?? null,
+      name: item.name ?? item.title ?? "Product",
+      price: Number(item.price || 0),
+      image: item.image ?? null,
+      qty: 1,
+      variant: item.variant ?? null,
+    });
+
+    openCart();
+
+    // Opsional: kalau kamu mau otomatis hilang dari wishlist setelah masuk cart
+    // handleRemove(key);
   };
 
   return (
@@ -141,19 +164,22 @@ export default function WishlistPage() {
 
                     {/* Actions */}
                     <div className="mt-5 flex gap-3">
+                      {/* View product sebaiknya ke detail page */}
                       <Link
-                        to="/catalog"
+                        to={`/product/${item.slug}`}
                         className="flex-1 text-center py-2.5 rounded-lg border border-gray-200 text-sm font-semibold hover:border-black transition"
                       >
                         View product
                       </Link>
 
-                      <Link
-                        to="/catalog"
+                      {/* Add to cart: jadi button */}
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(item)}
                         className="flex-1 text-center py-2.5 rounded-lg bg-black text-white text-sm font-semibold hover:bg-gray-800 transition"
                       >
                         Add to cart
-                      </Link>
+                      </button>
                     </div>
 
                     <p className="mt-4 text-xs text-gray-500">

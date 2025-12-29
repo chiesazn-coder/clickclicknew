@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
 import "./ProductDetailPage.css";
+import { useCart } from "../context/CartContext";
 
 const ProductDetailPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+
+  const { addItem, openCart } = useCart(); // ✅ ambil dari cart
 
   const product = products.find((p) => p.slug === slug);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -22,16 +25,27 @@ const ProductDetailPage = () => {
     );
   }
 
-  const handleDecrease = () => {
-    setQuantity((q) => (q > 1 ? q - 1 : 1));
-  };
-
-  const handleIncrease = () => {
-    setQuantity((q) => q + 1);
-  };
+  const handleDecrease = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
+  const handleIncrease = () => setQuantity((q) => q + 1);
 
   const handleAddToBag = () => {
-    alert(`Added ${quantity} × ${product.title} to bag`);
+    const mainImg = product.images?.[activeImageIndex] ?? product.image ?? null;
+
+    // key harus unik per item/variant. kalau belum ada variant, cukup id/slug.
+    const key = product.id ?? product.slug;
+
+    addItem({
+      key,
+      id: product.id,
+      slug: product.slug,
+      name: product.title,
+      price: Number(product.price || 0),
+      image: mainImg,
+      qty: quantity,
+      variant: null, // nanti kalau ada warna/size, isi di sini
+    });
+
+    openCart(); // ✅ ini yang bikin CartDrawer kebuka
   };
 
   return (
