@@ -1,10 +1,10 @@
 // src/pages/CatalogPage.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // Hero
 import catalogHero from "../assets/catalog/hero-catalog.png";
 
-// Produk 1 (M4)
+// Produk 1 (T1M)
 import showerCreamImage from "../assets/catalog/relatedimage/prod-t1m.png";
 import visual1 from "../assets/catalog/t1m/t1m-1.png";
 import visual2 from "../assets/catalog/t1m/t1m-3.png";
@@ -19,6 +19,7 @@ import conditionerImage from "../assets/catalog/relatedimage/prod-m4.png";
 import hairMaskImage from "../assets/catalog/m4/m4-1.png";
 import hairMaskImage2 from "../assets/catalog/m4/m4-2.png";
 
+// Produk 4 (T3B)
 import t3bcover from "../assets/catalog/relatedimage/prod-t3b.png";
 import t3bslide1 from "../assets/catalog/t3b/t3b-1.png";
 import t3bslide2 from "../assets/catalog/t3b/t3b-2.png";
@@ -32,33 +33,33 @@ const defaultInfo = {
   howToUse: [
     {
       title: "Turn on the Mirror Screen",
-      description: "Press the power button until the screen lights up."
+      description: "Press the power button until the screen lights up.",
     },
     {
       title: "Switch to Mirror Mode",
-      description: "Open the Mirror or Screen Mirroring menu on the device."
+      description: "Open the Mirror or Screen Mirroring menu on the device.",
     },
     {
       title: "Enable Screen Mirroring on Your Smartphone",
       description: [
         "On iPhone, open Control Center and tap Screen Mirroring.",
-        "On Android, open Settings and select Cast, Smart View, or Screen Mirroring."
-      ]
+        "On Android, open Settings and select Cast, Smart View, or Screen Mirroring.",
+      ],
     },
     {
       title: "Select Click Click Mirror Screen",
-      description: "Choose your Click Click Mirror Screen model from the available device list."
+      description:
+        "Choose your Click Click Mirror Screen model from the available device list.",
     },
     {
       title: "Wait Until Connected",
-      description: "Within seconds, your phone screen will appear on the Mirror Screen in real time."
-    }
+      description:
+        "Within seconds, your phone screen will appear on the Mirror Screen in real time.",
+    },
   ],
-  
   texture: "Medium-weight cream",
   aroma: "Clove buds, Nutmeg, Honey",
 };
-
 
 // Data produk lengkap
 const ALL_PRODUCTS = [
@@ -75,13 +76,14 @@ const ALL_PRODUCTS = [
       "For the ones who keep it real.",
       "T1M nggak dirancang buat semua orang. Dia buat kamu yang pengen tampil apa adanya.",
       "Tanpa takut diliat dari dekat. Refleksinya jernih banget, setiap detail di wajah lo nggak disembunyiin. Dan justru di situ keindahannya: real, simple, confident.",
-      "Bingkai kaca yang solid bikin pantulannya terasa tegas. Cahaya naturalnya ngasih tone warna yang pas di kamera. T1M itu statement. Nggak perlu perfect, yang penting real."
+      "Bingkai kaca yang solid bikin pantulannya terasa tegas. Cahaya naturalnya ngasih tone warna yang pas di kamera. T1M itu statement. Nggak perlu perfect, yang penting real.",
     ],
     dosageText: [
       "Type: T1M",
       "Screen Size: 3,97 IPS",
       "Resolution: 480×800P",
-      "Longevity: 3 HoursDistance: 10-15 meters"
+      "Longevity: 3 Hours",
+      "Distance: 10-15 meters",
     ],
     productImages: [visual1, visual2],
     ...defaultInfo,
@@ -100,15 +102,16 @@ const ALL_PRODUCTS = [
       "Ambil napas bentar. Bayangin pagi yang rame, tapi kamu tetep punya waktu buat senyum di depan kamera. T8D nyalain mood kamu, nggak cuma pantulanmu.",
       "Desain bulatnya ngasih vibe hangat, cahayanya nyatu sama kulit, dan semua terlihat effortless tanpa filter berlebih.",
       "T8D cocok buat yang pengin tampil real tapi fun, buat kamu yang percaya glow up terbaik itu yang datang dari rasa nyaman.",
-      "Keep your glow up real."
+      "Keep your glow up real.",
     ],
     dosageText: [
       "Type: T8D",
       "Screen Size: 2,1 IPS",
       "Resolution: 480×480P",
-      "Longevity: 4 HoursDistance: 10-15 meters"
+      "Longevity: 4 Hours",
+      "Distance: 10-15 meters",
     ],
-    productImages: [shampooVisual1,shampooVisual2],
+    productImages: [shampooVisual1, shampooVisual2],
     ...defaultInfo,
   },
   {
@@ -123,17 +126,18 @@ const ALL_PRODUCTS = [
     functionsText: [
       "For the ones who live in color.",
       "Kadang yang paling kuat itu bukan yang paling rame. M4 hadir buat kamu yang kerja diam-diam, tapi hasilnya tetap on point.",
-      "Finishing metal-nya ngasih kesan cool dan tenang. Cahayanya soft, pantulannya stabil bikin kamu lebih fokus ke vibe, bukan alatnya.Nggak perlu tampil rame. M4 tuh bukti kalau calm juga power.",
-      "Do less. Look better."
+      "Finishing metal-nya ngasih kesan cool dan tenang. Cahayanya soft, pantulannya stabil bikin kamu lebih fokus ke vibe, bukan alatnya.",
+      "Nggak perlu tampil rame. M4 tuh bukti kalau calm juga power.",
+      "Do less. Look better.",
     ],
     dosageText: [
       "Type: M4",
       "Screen Size: 4,0 IPS",
       "Resolution: 720×1280P",
       "Longevity: 3 Hours",
-      "Distance: 10-15 meters"
+      "Distance: 10-15 meters",
     ],
-    productImages: [hairMaskImage,hairMaskImage2],
+    productImages: [hairMaskImage, hairMaskImage2],
     ...defaultInfo,
   },
   {
@@ -142,21 +146,22 @@ const ALL_PRODUCTS = [
     rawPrice: 1650000,
     imageSrc: t3bcover,
     description:
-      "Kadang kerjaan, konten, dan cerita nggak bisa berhenti. Dan T3B dibuat buat momen itu. Baterainya kuat banget (2500 mAh), layarnya lega (4.7 IPS) dan cahayanya tetap soft walau lighting berubah.Buat kamu yang nggak mau ribet ganti-ganti posisi atau nyari angle tiap jam, T3B selalu siap, stabil, tenang, dan real.",
+      "Kadang kerjaan, konten, dan cerita nggak bisa berhenti. Dan T3B dibuat buat momen itu. Baterainya kuat banget (2500 mAh), layarnya lega (4.7 IPS) dan cahayanya tetap soft walau lighting berubah. Buat kamu yang nggak mau ribet ganti-ganti posisi atau nyari angle tiap jam, T3B selalu siap, stabil, tenang, dan real.",
     sizeOptions: ["4.7 inci"],
     defaultSize: "4.7 inci",
     functionsText: [
       "For days that never stop.",
       "Kadang kerjaan, konten, dan cerita nggak bisa berhenti. Dan T3B dibuat buat momen itu.",
       "Baterainya kuat banget (2500 mAh), layarnya lega (4.7 inch), dan cahayanya tetap soft walau lighting berubah.",
-      "Buat kamu yang nggak mau ribet ganti-ganti posisi atau nyari angle tiap jam, T3B selalu siap — stabil, tenang, dan real.Bukan soal power aja, tapi soal rasa tenang saat tau alat kamu selalu siap nemenin.",
-      "Never off. Just like you."
+      "Buat kamu yang nggak mau ribet ganti-ganti posisi atau nyari angle tiap jam, T3B selalu siap, stabil, tenang, dan real.",
+      "Never off. Just like you.",
     ],
     dosageText: [
       "Type: T3B",
       "Screen Size: 4,7 IPS",
       "Resolution: 720×1080P",
-      "Longevity: 5 HoursDistance: 10-15 meters",
+      "Longevity: 5 Hours",
+      "Distance: 10-15 meters",
     ],
     productImages: [t3bslide1, t3bslide2],
     ...defaultInfo,
@@ -165,14 +170,36 @@ const ALL_PRODUCTS = [
 
 export default function CatalogPage() {
   const [currentProduct, setCurrentProduct] = useState(ALL_PRODUCTS[0]);
+  const [shouldScroll, setShouldScroll] = useState(false);
+  const detailRef = useRef(null);
 
   const handleProductClick = (productId) => {
     const newProduct = ALL_PRODUCTS.find((p) => p.id === productId);
-    if (newProduct) {
-      setCurrentProduct(newProduct);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (!newProduct) return;
+
+    setCurrentProduct(newProduct);
+    setShouldScroll(true);
   };
+
+  // Scroll setelah product berubah dan DOM sudah rerender
+  useEffect(() => {
+    if (!shouldScroll) return;
+
+    const headerEl = document.getElementById("site-header");
+    const headerH = headerEl ? headerEl.getBoundingClientRect().height : 0;
+
+    const targetEl = detailRef.current;
+    if (!targetEl) {
+      setShouldScroll(false);
+      return;
+    }
+
+    const y =
+      targetEl.getBoundingClientRect().top + window.scrollY - headerH - 62;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+    setShouldScroll(false);
+  }, [shouldScroll, currentProduct]);
 
   const productsToShowInGrid = ALL_PRODUCTS.filter(
     (product) => product.id !== currentProduct.id
@@ -189,18 +216,20 @@ export default function CatalogPage() {
         />
       </section>
 
-      {/* Detail Produk */}
-      <ProductDetailSection
-        productId={currentProduct.id}
-        productImage={currentProduct.imageSrc}
-        productName={currentProduct.name}
-        rawPrice={currentProduct.rawPrice}
-        description={currentProduct.description}
-        sizeOptions={currentProduct.sizeOptions}
-        defaultSize={currentProduct.defaultSize}
-        functionsText={currentProduct.functionsText}
-        dosageText={currentProduct.dosageText}
-      />
+      {/* Detail Produk (target scroll ke sini) */}
+      <section ref={detailRef}>
+        <ProductDetailSection
+          productId={currentProduct.id}
+          productImage={currentProduct.imageSrc}
+          productName={currentProduct.name}
+          rawPrice={currentProduct.rawPrice}
+          description={currentProduct.description}
+          sizeOptions={currentProduct.sizeOptions}
+          defaultSize={currentProduct.defaultSize}
+          functionsText={currentProduct.functionsText}
+          dosageText={currentProduct.dosageText}
+        />
+      </section>
 
       {/* Carousel + Info tambahan */}
       <ProductCarouselSection

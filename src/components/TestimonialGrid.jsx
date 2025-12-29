@@ -15,10 +15,10 @@ import testi6 from "../assets/testimonials/testi-6-min.png";
 // Data Testimoni kini menggunakan variabel yang diimpor
 const testimonials = [
     { id: 1, imageSrc: testi1, username: "@its_eelz" },
-    { id: 2, imageSrc: testi2, username: "@newyork_girl_in_la" },
-    { id: 3, imageSrc: testi3, username: "@jordancamont" },
+    { id: 2, imageSrc: testi2, username: "@badboysz" },
+    { id: 3, imageSrc: testi3, username: "@beautys" },
     { id: 4, imageSrc: testi4, username: "@brittanyrig" },
-    { id: 5, imageSrc: testi5, username: "@thegoomaral" },
+    { id: 5, imageSrc: testi5, username: "@thegorgeus" },
     { id: 6, imageSrc: testi6, username: "@1felda" },
 ];
 
