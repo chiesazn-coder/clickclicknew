@@ -10,7 +10,6 @@ import QuickViewDrawer from "./components/quickview/QuickViewDrawer";
 import CheckoutPage from "./pages/CheckoutPage";
 import PromoPage from "./pages/PromoPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
-import ScrollToHash from "./components/ScrollToHash";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import BlogComingSoon from "./pages/BlogComingSoon";
@@ -19,15 +18,15 @@ import WishlistPage from "./pages/WishlistPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import WellnessPage from "./pages/WellnessPage";
-
+import ScrollManager from "./components/ScrollManager";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
+      <ScrollManager />
       <QuickViewDrawer />
       <CartDrawer /> {/* ✅ tambah ini */}
-      <ScrollToHash />
       
       <div className="flex-grow">
         <Routes>

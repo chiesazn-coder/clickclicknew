@@ -52,16 +52,6 @@ const VideoShowcaseSection = () => {
     }
   };
 
-  // Efek untuk memastikan item aktif ter-scroll ke tengah saat pertama kali dimuat
-  React.useEffect(() => {
-    const card = cardRefs.current[activeIndex];
-    if (card && trackRef.current) {
-      card.scrollIntoView({
-        behavior: "instant", // Gunakan 'instant' agar centering tidak terlihat saat load
-        inline: "center",
-      });
-    }
-  }, []); // [] agar hanya berjalan sekali saat mount
 
   // play/pause sesuai activeIndex (logika sama seperti sebelumnya)
   React.useEffect(() => {
